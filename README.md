@@ -1,5 +1,6 @@
 # Projeto-Integrador-bagaque
 Projeto sobre e-commerce  de quadrinhos, HQ, Mangas, desenvolvido por uma galera da Bahia como requisito de conclusão do curso de Desenvolvimento Web Full Stack .NET  de parceria do IBRF com a Digital House
+
 O bagaquê é um sistema web de e-commerce de quadrinhos, HQs,  Mangás  entre outros desenvolvido em Angular, SQL Serve e .Net Framework  com várias funcionalidades para facilitar a experiência do usuário, tais como:
 1.	Página inicial: A página inicial pode ser um catálogo de produtos, que apresenta os quadrinhos, HQs e Mangás disponíveis na loja. Cada item pode conter uma foto, título, preço e uma breve descrição. 
 2.	Filtros de pesquisa: Os usuários podem filtrar a pesquisa por categorias, como editoras, gêneros, autores e artistas.
