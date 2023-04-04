@@ -9,6 +9,6 @@ O bagaquê é um sistema web de e-commerce de quadrinhos, HQs,  Mangás  entre o
 5.	Conta do usuário comum: O usuário pode criar uma conta pessoal para armazenar suas informações pessoais, endereço de entrega e opções de pagamento. Isso permitirá que o usuário faça compras mais rapidamente na próxima vez que visitar a loja.
 6.	Conta do usuário administrador do sistema: O usuário administrador tem mais acesso ao sistema, pois permite inserir, editar e deletar produtos, acessar os pedidos realizados e modificar o status do mesmo, e também acessar todas as funcionalidades do usuário comum.
 
-
+#Diagrama do Banco de Dados
 
 ![BaagaqueFinalAtualizado](https://user-images.githubusercontent.com/82737206/229720612-48acf7eb-322f-44a7-a5cc-56344402672b.png)
