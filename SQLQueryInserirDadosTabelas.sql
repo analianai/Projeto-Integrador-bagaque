@@ -2,16 +2,15 @@ use BagaqueDB
 
 Select*From Users
 
-INSERT INTO Users (NameUser, CPFUser, PhoneUser, SenhaLoginUser, EmailLoginUser,TypeUser)
+INSERT INTO Users (NameUser, CPFUser, PhoneUser, SenhaLoginUser, EmailLoginUser,PostalCodeUser,NumberUser,TypeUser)
 VALUES 
-('Anália', '00000000000', '75988136641', 123456,'analia.nai@gmail.com', 1),
-('Jessica','00000000000', '71986336602', 123456,'jessica.luuz@gmail.com', 1),
-('Geismar', '00000000000', '71991680602', 123456,'geismar.samis09@hotmail.com', 2),
-('Edu', '00000000000', '75981095997', 123456,'edducardoso88@gmail.com', 2),
-('Fernando', '00000000000', '75981097210', 123456,'nandotrystan@gmail.com', 1)
+('Anália', '00000000000', '75988136641', 123456,'analia.nai@gmail.com',40076708,89, 1),
+('Jessica','00000000000', '71986336602', 123456,'jessica.luuz@gmail.com',51021000, 209, 1),
+('Geismar', '00000000000', '71991680602', 123456,'geismar.samis09@hotmail.com',40076708, 9, 2),
+('Edu', '00000000000', '75981095997', 123456,'edducardoso88@gmail.com',44076709, 50, 2),
+('Fernando', '00000000000', '75981097210', 123456,'nandotrystan@gmail.com', 44076709, 50,1)
 
-Select*From Addresses
-
+/*Select*From Addresses
 INSERT INTO Addresses (Addresses, NumberAddress,NeighborhoodAddress,CityAddress,StateAddress,CountrydAddress,PostalCodeAddress)
 VALUES 
 ('Rua Buenos Aires', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076708),
@@ -19,6 +18,7 @@ VALUES
 ('Av. Sete de Setembro', 189, 'Centro', 'Salvador','Bahia','Brasil',40076708),
 ('Av. Boa Viagem',4308, 'Boa Viagem', 'Recife','Pernambuco','Brasil',51021000),
 ('Rua Bracelona', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076709)
+*/
 
 Select*From Orders
 
