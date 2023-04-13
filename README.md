@@ -11,4 +11,5 @@ O bagaquê é um sistema web de e-commerce de quadrinhos, HQs,  Mangás  entre o
 
 #Diagrama do Banco de Dados
 
-![BaagaqueFinalAtualizado](https://user-images.githubusercontent.com/82737206/229720612-48acf7eb-322f-44a7-a5cc-56344402672b.png)
+![BaagaqueFinalAtualizado](https://user-images.githubusercontent.com/82737206/231907174-e33bb780-a18f-48b8-acde-d191f4c35b12.png)
+
