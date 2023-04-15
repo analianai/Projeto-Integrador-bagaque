@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+{
+  "version": 2,
+  "dgSpecHash": "0hp8XmfAmoavxLB5VfGw2qOm4FMJ7+DQYUpG06SRF/eRLEraV/tSuvzkj2R2Dl4dUwUI2LHPaGCcJO7GyD9yPw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+=======
 {
   "version": 2,
   "dgSpecHash": "8IPDq2hn7ep/WCOSSQPKTof8i8p9aILTgqg6J9rPFF4eYi0h+zz+kqZ5Mr4IfYUGwQ/Y3JFMGkt7hlzdoliWGA==",
@@ -5,4 +14,5 @@
   "projectFilePath": "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj",
   "expectedPackageFiles": [],
   "logs": []
+>>>>>>> main
 }

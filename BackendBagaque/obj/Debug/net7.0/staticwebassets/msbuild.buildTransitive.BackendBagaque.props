@@ -1,3 +1,8 @@
+<<<<<<< HEAD
 ﻿<Project>
   <Import Project="..\buildMultiTargeting\BackendBagaque.props" />
+=======
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\BackendBagaque.props" />
+>>>>>>> main
 </Project>
