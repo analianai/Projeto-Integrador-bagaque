@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj": {}
+    "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj": {}
   },
   "projects": {
-    "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj": {
+    "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj",
+        "projectUniqueName": "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj",
         "projectName": "BackendBagaque",
-        "projectPath": "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj",
+        "projectPath": "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj",
         "packagesPath": "C:\\Users\\Carpe Diem\\.nuget\\packages\\",
-        "outputPath": "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\obj\\",
+        "outputPath": "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Carpe Diem\\AppData\\Roaming\\NuGet\\NuGet.Config",
