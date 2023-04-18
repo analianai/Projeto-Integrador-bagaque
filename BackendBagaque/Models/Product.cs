@@ -9,7 +9,7 @@ namespace BackendBagaque.Models
 
         public string Title { get; set; }
 
-        public string Description{ get; set; }
+        public string Descriptions { get; set; }
 
         public string Category { get; set; }
 
@@ -17,7 +17,7 @@ namespace BackendBagaque.Models
 
         public double Price { get; set; }
 
-        public string Image { get; set; }
+        public string Images { get; set; }
         
         public string Tags { get; set; }
     }

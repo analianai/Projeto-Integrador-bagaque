@@ -2,7 +2,7 @@ use BagaqueDB
 
 Select*From Users
 
-INSERT INTO Users (NameUser, CPFUser, PhoneUser, SenhaLoginUser, EmailLoginUser,PostalCodeUser,NumberUser,TypeUser)
+INSERT INTO Users (Names,CPF,Phone,PasswordLogin,EmailLogin,PostalCode,NumberAddress,TypeUser)
 VALUES 
 ('Anália', '00000000000', '75988136641', 123456,'analia.nai@gmail.com',40076708,89, 1),
 ('Jessica','00000000000', '71986336602', 123456,'jessica.luuz@gmail.com',51021000, 209, 1),
@@ -22,7 +22,7 @@ VALUES
 
 Select*From Orders
 
-INSERT INTO Orders (DateOrder,FinalDateDeliveryOrder,CodeDeliveryOrder,StatusOrder,TypePaymentOrder,StatusPaymentOrder)
+INSERT INTO Orders (Dater,FinalDateDelivery,CodeDelivery,StatusOrder,TypePayment,StatusPayment)
 VALUES 
 (2022-04-22, 2023-05-23, 14,'Aguardando Pagamento','Cartão Credito','Processando Pagamento'),
 (2023-04-03, 2023-05-05, 2,'Em separação','Pix','Pagamento Efetuado'),
@@ -32,7 +32,7 @@ VALUES
 
 Select*From Product
 
-INSERT INTO Product (TitleProduct, DescriptionProduct,CategoryProduct, QuantityProduct,PriceProduct ,ImageProduct,TagsProduct)
+INSERT INTO Product (Title, Descriptions,Category, Quantity,Price ,Images,Tags)
 VALUES
 ('Vingadores Capa Dura - Volume 1',	'Marvel Publicação de 2014','HQ',35, 49.90,'img1','#HQ'),
 ('Vingadores Capa Dura - Volume 2',	'Marvel Publicação de 2014','HQ',35, 52.90,'img2','#HQ'),
@@ -87,7 +87,7 @@ VALUES
 
 Select*From ProductOrder
 
-INSERT INTO ProductOrder (idProduct,idOrder,QuantityProductOrder)
+INSERT INTO ProductOrder (idProduct,idOrder,Quantity)
 VALUES
 (1,2, 5),
 (1,1, 15),

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "Version": 1,
   "Hash": "viUxHG3tkJvPiROMAvKwMy53YNu9CpRsCcux/w3Aehs=",
@@ -9,16 +8,4 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
   "Assets": []
-=======
-{
-  "Version": 1,
-  "Hash": "viUxHG3tkJvPiROMAvKwMy53YNu9CpRsCcux/w3Aehs=",
-  "Source": "BackendBagaque",
-  "BasePath": "_content/BackendBagaque",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
->>>>>>> main
 }
