@@ -26,7 +26,7 @@ namespace BackendBagaque.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] Orders orders)
         {
-            return Ok("Create" + orders.Status);
+            return Ok("Create" + orders.StatusOrder);
         }
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody] Orders orders)
