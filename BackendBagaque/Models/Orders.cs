@@ -15,7 +15,15 @@ namespace BackendBagaque.Models
         public int CodeDelivery { get; set; }
         public string StatusOrder { get; set; }
         public string TypePayment { get; set; }
-        public string StatusPayment { get; set; }
- 
+        public string StatusPayment { get; set; }      
+    }
+    public class ProductOrder
+    {
+
+        [Required]
+        public int IdProduct { get; set; }
+        [Required]
+        public int IdOrders { get; set; }
+        public int Quantity { get; set; }
     }
 }

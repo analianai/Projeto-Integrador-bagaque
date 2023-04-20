@@ -11,7 +11,6 @@ namespace BackendBagaque.Controllers
     [Route("[controller]")]
     public class OrdersController : Controller
     {
-
         public IActionResult Index()
         {
             return Ok("GetAll");

@@ -13,7 +13,7 @@ namespace BackendBagaque.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetOne(int id)
+        public IActionResult GetOne(int idUser)
         {
             return Ok("GetOne");
         }
@@ -25,7 +25,7 @@ namespace BackendBagaque.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] Users users)
+        public IActionResult Update(int idUser, [FromBody] Users users)
         {
             return Ok("Update");
         }
