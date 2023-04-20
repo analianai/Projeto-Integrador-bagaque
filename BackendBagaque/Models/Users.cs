@@ -1,8 +1,11 @@
-﻿namespace BackendBagaque.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace BackendBagaque.Models
 {
     public class Users
     {
-        public int Id { get; set; }
+        [Key]
+        public int IdUser { get; set; }
         public string Names { get; set; }
         public string CPF { get; set; }
         public string Phone { get; set; }

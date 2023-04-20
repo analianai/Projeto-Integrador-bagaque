@@ -10,16 +10,6 @@ VALUES
 ('Edu', '00000000000', '75981095997', 123456,'edducardoso88@gmail.com',44076709, 50, 2),
 ('Fernando', '00000000000', '75981097210', 123456,'nandotrystan@gmail.com', 44076709, 50,1)
 
-/*Select*From Addresses
-INSERT INTO Addresses (Addresses, NumberAddress,NeighborhoodAddress,CityAddress,StateAddress,CountrydAddress,PostalCodeAddress)
-VALUES 
-('Rua Buenos Aires', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076708),
-('Rua Carlos Gomes', 9, 'Centro', 'Salvador','Bahia','Brasil',40076708),
-('Av. Sete de Setembro', 189, 'Centro', 'Salvador','Bahia','Brasil',40076708),
-('Av. Boa Viagem',4308, 'Boa Viagem', 'Recife','Pernambuco','Brasil',51021000),
-('Rua Bracelona', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076709)
-*/
-
 Select*From Orders
 
 INSERT INTO Orders (Dater,FinalDateDelivery,CodeDelivery,StatusOrder,TypePayment,StatusPayment)
@@ -30,9 +20,9 @@ VALUES
 (2023-04-03, 2023-04-23, 3,'Entregue','Pix','Pagamento Efetuado'),
 (2023-04-03, 2023-04-23, 12,'Aguardando Pagamento','Cartão Credito','Processando Pagamento')
 
-Select*From Product
+Select*From Products
 
-INSERT INTO Product (Title, Descriptions,Category, Quantity,Price ,Images,Tags)
+INSERT INTO Products(Title, Descriptions,Category, Quantity,Price ,Images,Tags)
 VALUES
 ('Vingadores Capa Dura - Volume 1',	'Marvel Publicação de 2014','HQ',35, 49.90,'img1','#HQ'),
 ('Vingadores Capa Dura - Volume 2',	'Marvel Publicação de 2014','HQ',35, 52.90,'img2','#HQ'),
@@ -94,3 +84,13 @@ VALUES
 (2,3, 25),
 (3,4, 2),
 (4,5, 1)
+
+/*Select*From Addresses
+INSERT INTO Addresses (Addresses, NumberAddress,NeighborhoodAddress,CityAddress,StateAddress,CountrydAddress,PostalCodeAddress)
+VALUES 
+('Rua Buenos Aires', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076708),
+('Rua Carlos Gomes', 9, 'Centro', 'Salvador','Bahia','Brasil',40076708),
+('Av. Sete de Setembro', 189, 'Centro', 'Salvador','Bahia','Brasil',40076708),
+('Av. Boa Viagem',4308, 'Boa Viagem', 'Recife','Pernambuco','Brasil',51021000),
+('Rua Bracelona', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076709)
+*/

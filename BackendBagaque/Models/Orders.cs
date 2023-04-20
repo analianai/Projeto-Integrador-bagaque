@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,7 +8,8 @@ namespace BackendBagaque.Models
 {
     public class Orders
     {
-        public int Id { get; set; }
+        [Key]
+        public int IdOrder { get; set; }
         public DateTime Dater { get; set; }
         public DateTime FinalDateDelivery { get; set; }
         public int CodeDelivery { get; set; }

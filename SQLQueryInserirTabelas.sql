@@ -1,7 +1,7 @@
 use BagaqueDB
 
 CREATE TABLE Users (
-  Id int IDENTITY(1,1) PRIMARY KEY,
+  IdUsers int IDENTITY(1,1) PRIMARY KEY,
   Names varchar(255),
   CPF varchar(50),
   Phone varchar(50),
@@ -13,7 +13,7 @@ CREATE TABLE Users (
   );
 
 CREATE TABLE Orders (
-  Id int IDENTITY(1,1) PRIMARY KEY,
+  IdOrders int IDENTITY(1,1) PRIMARY KEY,
   Dater DATETIME,
   FinalDateDelivery DATETIME,
   CodeDelivery int,
@@ -21,11 +21,11 @@ CREATE TABLE Orders (
   TypePayment varchar(50),
   StatusPayment varchar(50),
   idUser INT,
-  FOREIGN KEY (idUser) REFERENCES Users(Id)
+  FOREIGN KEY (idUser) REFERENCES Users(IdUsers)
 );
 
-CREATE TABLE Product (
- Id int IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE Products (
+ IdProducts int IDENTITY(1,1) PRIMARY KEY,
  Title varchar(100),
  Descriptions text,
  Category varchar(50),
@@ -39,8 +39,8 @@ CREATE TABLE ProductOrder (
  IdProduct int,
  IdOrder int,
  Quantity int,
- FOREIGN KEY (IdProduct) REFERENCES Product(Id),
- FOREIGN KEY (IdOrder) REFERENCES Orders(Id)
+ FOREIGN KEY (IdProduct) REFERENCES Products(IdProducts),
+ FOREIGN KEY (IdOrder) REFERENCES Orders(IdOrders)
 );
 
 /*CREATE TABLE Addresses (
