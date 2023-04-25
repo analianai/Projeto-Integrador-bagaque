@@ -36,6 +36,7 @@ CREATE TABLE Products (
 );
 
 CREATE TABLE ProductOrder (
+ IdProductOrder int IDENTITY(1,1) PRIMARY KEY,
  IdProduct int,
  IdOrder int,
  Quantity int,

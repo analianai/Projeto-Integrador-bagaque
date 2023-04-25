@@ -16,8 +16,8 @@ namespace BackendBagaque.Controllers
             return Ok("GetAll");
         }
 
-        [HttpGet("{idOrders}")]
-        public IActionResult GetOne(int id)
+        [HttpGet("{IdOrders}")]
+        public IActionResult GetOne(int IdOrders)
         {
             return Ok("GetOne");
         }
@@ -28,13 +28,13 @@ namespace BackendBagaque.Controllers
             return Ok("Create" + orders.StatusOrder);
         }
         [HttpPut("{idOrder}")]
-        public IActionResult Update(int id, [FromBody] Orders orders)
+        public IActionResult Update(int IdOrders, [FromBody] Orders orders)
         {
             return Ok("Update");
         }
 
         [HttpDelete("{idOrder}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int IdOrders)
         {
             return Ok("Delete");
         }

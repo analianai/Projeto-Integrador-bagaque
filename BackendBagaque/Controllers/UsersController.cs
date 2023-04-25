@@ -1,4 +1,4 @@
-﻿using BackendBagaque.Date;
+﻿using BackendBagaque.Data;
 using BackendBagaque.Models;
 using BackendBagaque.Services.Users;
 using Microsoft.AspNetCore.Mvc;
@@ -22,10 +22,10 @@ namespace BackendBagaque.Controllers
             return Ok(usersService.GetAll());
         }
 
-        [HttpGet("{IdUser}")]
-        public IActionResult GetOne(int IdUser)
+        [HttpGet("{IdUsers}")]
+        public IActionResult GetOne(int IdUsers)
         {
-            var user = usersService.GetOne(IdUser);
+            var user = usersService.GetOne(IdUsers);
             if (user == null)
             {
                 return NotFound();
@@ -48,12 +48,12 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        [HttpPut("{userId}")]
-        public IActionResult Update(int IdUser, Users user)
+        [HttpPut("{IdUsers}")]
+        public IActionResult Update(int IdUsers, Users user)
         {
             try
             {
-                usersService.Update(IdUser, user);
+                usersService.Update(IdUsers, user);
                 return Ok(user);
             }
             catch (Exception ex)
@@ -62,13 +62,13 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        [HttpDelete("{IdUser}")]
-        public IActionResult Delete(int IdUser)
+        [HttpDelete("{IdUsers}")]
+        public IActionResult Delete(int IdUsers)
         {
             try
             {
-                usersService.Delete(IdUser);
-                return Ok(IdUser);
+                usersService.Delete(IdUsers);
+                return Ok("Usuario deletado com sucesso "+IdUsers);
             }
             catch (Exception ex)
             {

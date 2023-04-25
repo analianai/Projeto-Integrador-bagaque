@@ -1,16 +1,20 @@
-using BackendBagaque.Date;
+using BackendBagaque.Data;
+using BackendBagaque.Models;
 using BackendBagaque.Services.Users;
+using BackendBagaque.Services.Products;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// add Connection
-builder.Services.AddDbContext<BagaqueDBContext>(option =>{
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-}
-);
+// Add connection
+builder.Services.AddDbContext<BagaqueDBContext>(options => {
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
+// Add Services
 builder.Services.AddScoped<UsersService>();
+builder.Services.AddScoped<ProductsService>();
 
 builder.Services.AddControllers();
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BackendBagaque.Models
 {
-    public class Orders
+    public class Orders 
     {
         [Key]
         public int IdOrder { get; set; }
@@ -15,11 +15,14 @@ namespace BackendBagaque.Models
         public int CodeDelivery { get; set; }
         public string StatusOrder { get; set; }
         public string TypePayment { get; set; }
-        public string StatusPayment { get; set; }      
+        public string StatusPayment { get; set; }
+        [Required]
+        public int IdUser { get; set; }
     }
-    public class ProductOrder
+    public class ProductOrder 
     {
-
+        [Key]
+        public int IdProductOrder { get; set; }
         [Required]
         public int IdProduct { get; set; }
         [Required]

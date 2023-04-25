@@ -1,4 +1,4 @@
-﻿using BackendBagaque.Date;
+﻿using BackendBagaque.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendBagaque.Services.Users
@@ -17,9 +17,9 @@ namespace BackendBagaque.Services.Users
             return context.Users.ToList();
         }
 
-        public Models.Users? GetOne(int IdUser)
+        public Models.Users? GetOne(int IdUsers)
         {
-            var user = context.Users.Find(IdUser);
+            var user = context.Users.Find(IdUsers);
             return user;
         }
 
@@ -42,13 +42,13 @@ namespace BackendBagaque.Services.Users
                 userToUpdate.EmailLogin = user.EmailLogin;
                 userToUpdate.PostalCode = user.PostalCode;
                 userToUpdate.NumberAddress = user.NumberAddress;
-                userToUpdate.Type = user.Type;
+                userToUpdate.TypeUser = user.TypeUser;
 
-        context.SaveChanges();
+                context.SaveChanges();
             }
             else
             {
-                throw new Exception("Usuário não encontrado para o ID" + IdUser);
+                throw new Exception("ERRO - Usuário não encontrado para o ID" + IdUser);
             }
         }
 
@@ -62,7 +62,7 @@ namespace BackendBagaque.Services.Users
             }
             else
             {
-                throw new Exception("Usuário não encontrado para o id " + IdUser);
+                throw new Exception("ERRO - Usuário não encontrado para o id " + IdUser);
             }
         }
     }
