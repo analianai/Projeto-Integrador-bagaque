@@ -1,4 +1,4 @@
-﻿using BackendBagaque.Date;
+﻿using BackendBagaque.Data;
 using BackendBagaque.Models;
 
 namespace BackendBagaque.Services.Products
