@@ -2,6 +2,7 @@ using BackendBagaque.Data;
 using BackendBagaque.Models;
 using BackendBagaque.Services.Users;
 using BackendBagaque.Services.Products;
+using BackendBagaque.Services.Orders;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<BagaqueDBContext>(options => {
 // Add Services
 builder.Services.AddScoped<UsersService>();
 builder.Services.AddScoped<ProductsService>();
+builder.Services.AddScoped<OrdersService>();
 
 builder.Services.AddControllers();
 

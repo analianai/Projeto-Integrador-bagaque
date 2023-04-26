@@ -1,43 +1,78 @@
 ﻿using BackendBagaque.Models;
+using BackendBagaque.Services.Orders;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 
 namespace BackendBagaque.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class OrdersController : Controller
     {
-        public IActionResult Index()
+        private readonly OrdersService ordersService;
+
+        public OrdersController(OrdersService ordersService)
         {
-            return Ok("GetAll");
+            this.ordersService = ordersService;
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(ordersService.GetAll());
         }
 
         [HttpGet("{IdOrders}")]
         public IActionResult GetOne(int IdOrders)
         {
-            return Ok("GetOne");
+            var order = ordersService.GetOne(IdOrders);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return Ok(order);
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Orders orders)
+        public IActionResult Create(Orders order)
         {
-            return Ok("Create" + orders.StatusOrder);
-        }
-        [HttpPut("{idOrder}")]
-        public IActionResult Update(int IdOrders, [FromBody] Orders orders)
-        {
-            return Ok("Update");
+            try
+            {
+                ordersService.Create(order);
+                return Ok(order);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete("{idOrder}")]
+        [HttpPut("{IdOrders}")]
+        public IActionResult Update(int IdOrders, Orders order)
+        {
+            try
+            {
+                ordersService.Update(IdOrders, order);
+                return Ok(order);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{IdOrders}")]
         public IActionResult Delete(int IdOrders)
         {
-            return Ok("Delete");
-        }
+            try
+            {
+                ordersService.Delete(IdOrders);
+                return Ok(IdOrders);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
+        }
     }
 }

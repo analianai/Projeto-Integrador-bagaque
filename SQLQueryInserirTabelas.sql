@@ -20,7 +20,7 @@ CREATE TABLE Orders (
   StatusOrder varchar(100),
   TypePayment varchar(50),
   StatusPayment varchar(50),
-  idUser INT,
+  IdUser INT,
   FOREIGN KEY (idUser) REFERENCES Users(IdUsers)
 );
 
