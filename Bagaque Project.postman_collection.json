@@ -45,7 +45,7 @@
 					"response": []
 				},
 				{
-					"name": "CreateUser",
+					"name": "CreateUsers",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -252,7 +252,33 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n     \"title\": \"Vingadores Capa Dura - Volume 10\",\r\n    \"descriptions\": \"Marvel Publicação de 2014\",\r\n    \"category\": \"HQ\",\r\n    \"quantity\": 35,\r\n    \"price\": 52.90,\r\n    \"images\": \"img2\",\r\n    \"tags\": \"#HQ\"\r\n}",
+							"raw": "{\r\n     \"title\": \"Vingadores Capa Dura - Volume 100\",\r\n    \"descriptions\": \"Marvel Publicação de 2014\",\r\n    \"category\": \"HQ\",\r\n    \"quantity\": 35,\r\n    \"price\": 52.90,\r\n    \"images\": \"img2\",\r\n    \"tags\": \"#HQ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateProductByAdm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"title\": \"Vingadores Capa Dura - Volume 100\",\r\n    \"descriptions\": \"Marvel Publicação de 2014\",\r\n    \"category\": \"HQ\",\r\n    \"quantity\": 35,\r\n    \"price\": 52.90,\r\n    \"images\": \"img2\",\r\n    \"tags\": \"#HQ\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -317,14 +343,6 @@
 					"response": []
 				}
 			]
-		},
-		{
-			"name": "GetAll",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
 		}
 	]
 }
