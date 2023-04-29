@@ -2,7 +2,7 @@ use BagaqueDB
 
 Select*From Users
 
-INSERT INTO Users (NameUser, CPFUser, PhoneUser, SenhaLoginUser, EmailLoginUser,PostalCodeUser,NumberUser,TypeUser)
+INSERT INTO Users (Names,CPF,Phone,PasswordLogin,EmailLogin,PostalCode,NumberAddress,TypeUser)
 VALUES 
 ('Anália', '00000000000', '75988136641', 123456,'analia.nai@gmail.com',40076708,89, 1),
 ('Jessica','00000000000', '71986336602', 123456,'jessica.luuz@gmail.com',51021000, 209, 1),
@@ -10,29 +10,19 @@ VALUES
 ('Edu', '00000000000', '75981095997', 123456,'edducardoso88@gmail.com',44076709, 50, 2),
 ('Fernando', '00000000000', '75981097210', 123456,'nandotrystan@gmail.com', 44076709, 50,1)
 
-/*Select*From Addresses
-INSERT INTO Addresses (Addresses, NumberAddress,NeighborhoodAddress,CityAddress,StateAddress,CountrydAddress,PostalCodeAddress)
-VALUES 
-('Rua Buenos Aires', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076708),
-('Rua Carlos Gomes', 9, 'Centro', 'Salvador','Bahia','Brasil',40076708),
-('Av. Sete de Setembro', 189, 'Centro', 'Salvador','Bahia','Brasil',40076708),
-('Av. Boa Viagem',4308, 'Boa Viagem', 'Recife','Pernambuco','Brasil',51021000),
-('Rua Bracelona', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076709)
-*/
-
 Select*From Orders
 
-INSERT INTO Orders (DateOrder,FinalDateDeliveryOrder,CodeDeliveryOrder,StatusOrder,TypePaymentOrder,StatusPaymentOrder)
+INSERT INTO Orders (Dater,FinalDateDelivery,CodeDelivery,StatusOrder,TypePayment,StatusPayment,I)
 VALUES 
-(2022-04-22, 2023-05-23, 14,'Aguardando Pagamento','Cartão Credito','Processando Pagamento'),
-(2023-04-03, 2023-05-05, 2,'Em separação','Pix','Pagamento Efetuado'),
-(2023-04-03, 2023-05-02, 13,'Pedido Encaminhado para trasportadora','Cartão Debito','Pagamento Efetuado'),
-(2023-04-03, 2023-04-23, 3,'Entregue','Pix','Pagamento Efetuado'),
-(2023-04-03, 2023-04-23, 12,'Aguardando Pagamento','Cartão Credito','Processando Pagamento')
+(2022-04-22, 2023-05-23, 14,'Aguardando Pagamento','Cartão Credito','Processando Pagamento',1),
+(2023-04-03, 2023-05-05, 2,'Em separação','Pix','Pagamento Efetuado',3),
+(2023-04-03, 2023-05-02, 13,'Pedido Encaminhado para trasportadora','Cartão Debito','Pagamento Efetuado',4),
+(2023-04-03, 2023-04-23, 3,'Entregue','Pix','Pagamento Efetuado',3),
+(2023-04-03, 2023-04-23, 12,'Aguardando Pagamento','Cartão Credito','Processando Pagamento',2)
 
-Select*From Product
+Select*From Products
 
-INSERT INTO Product (TitleProduct, DescriptionProduct,CategoryProduct, QuantityProduct,PriceProduct ,ImageProduct,TagsProduct)
+INSERT INTO Products(Title, Descriptions,Category, Quantity,Price ,Images,Tags)
 VALUES
 ('Vingadores Capa Dura - Volume 1',	'Marvel Publicação de 2014','HQ',35, 49.90,'img1','#HQ'),
 ('Vingadores Capa Dura - Volume 2',	'Marvel Publicação de 2014','HQ',35, 52.90,'img2','#HQ'),
@@ -87,10 +77,20 @@ VALUES
 
 Select*From ProductOrder
 
-INSERT INTO ProductOrder (idProduct,idOrder,QuantityProductOrder)
+INSERT INTO ProductOrder (idProduct,idOrder,Quantity)
 VALUES
-(1,2, 5),
-(1,1, 15),
+(1,3, 5),
+(1,7, 15),
 (2,3, 25),
 (3,4, 2),
 (4,5, 1)
+
+/*Select*From Addresses
+INSERT INTO Addresses (Addresses, NumberAddress,NeighborhoodAddress,CityAddress,StateAddress,CountrydAddress,PostalCodeAddress)
+VALUES 
+('Rua Buenos Aires', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076708),
+('Rua Carlos Gomes', 9, 'Centro', 'Salvador','Bahia','Brasil',40076708),
+('Av. Sete de Setembro', 189, 'Centro', 'Salvador','Bahia','Brasil',40076708),
+('Av. Boa Viagem',4308, 'Boa Viagem', 'Recife','Pernambuco','Brasil',51021000),
+('Rua Bracelona', 89, 'Parque Getulio Vargas', 'Feira de Santana','Bahia','Brasil',44076709)
+*/

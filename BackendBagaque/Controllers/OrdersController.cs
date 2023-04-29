@@ -1,90 +1,78 @@
-<<<<<<< HEAD
 ﻿using BackendBagaque.Models;
+using BackendBagaque.Services.Orders;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 
 namespace BackendBagaque.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class OrdersController : Controller
     {
+        private readonly OrdersService ordersService;
 
-        public IActionResult Index()
+        public OrdersController (OrdersService ordersService)
         {
-            return Ok("GetAll");
+            this.ordersService = ordersService;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetOne(int id)
+        [HttpGet]
+        public IActionResult GetAll()
         {
-            return Ok("GetOne");
+            return Ok(ordersService.GetAll());
         }
 
-        [HttpPost]
-        public IActionResult Create([FromBody] Orders orders)
+        [HttpGet("{IdOrders}")]
+        public IActionResult GetOne(int IdOrders)
         {
-            return Ok("Create" + orders.IdOrder);
-        }
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] Orders orders)
-        {
-            return Ok("Update");
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            return Ok("Delete");
-        }
-
-    }
-=======
-﻿using BackendBagaque.Models;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-
-namespace BackendBagaque.Controllers
-{
-    [Route("[controller]")]
-    public class OrdersController : Controller
-    {
-
-        public IActionResult Index()
-        {
-            return Ok("GetAll");
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetOne(int id)
-        {
-            return Ok("GetOne");
+            var order = ordersService.GetOne(IdOrders);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return Ok(order);
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Orders orders)
+        public IActionResult Create(Orders order)
         {
-            return Ok("Create" + orders.IdOrder);
-        }
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] Orders orders)
-        {
-            return Ok("Update");
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            return Ok("Delete");
+            try
+            {
+                ordersService.Create(order);
+                return Ok(order);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
+        [HttpPut("{IdOrders}")]
+        public IActionResult Update(int IdOrders, Orders order)
+        {
+            try
+            {
+                ordersService.Update(IdOrders, order);
+                return Ok(order);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("{IdOrders}")]
+        public IActionResult Delete(int IdOrders)
+        {
+            try
+            {
+                ordersService.Delete(IdOrders);
+                return Ok("Pedido Excluido com Sucesso " + IdOrders);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
     }
->>>>>>> main
 }

@@ -1,46 +1,47 @@
 use BagaqueDB
 
 CREATE TABLE Users (
-  IdUser int IDENTITY(1,1) PRIMARY KEY,
-  NameUser varchar(255) not null,
-  CPFUser varchar(50) not null,
-  PhoneUser varchar(50) not null,
-  SenhaLoginUser varchar(16) not null,
-  EmailLoginUser varchar(50) not null,
-  PostalCodeUser varchar(50) not null,
-  NumberUser varchar(20) not null,
-  TypeUser int not null
+  IdUsers int IDENTITY(1,1) PRIMARY KEY,
+  Names varchar(255),
+  CPF varchar(50),
+  Phone varchar(50),
+  PasswordLogin varchar(16),
+  EmailLogin varchar(50),
+  PostalCode varchar(50),
+  NumberAddress varchar(20),
+  TypeUser int
   );
 
 CREATE TABLE Orders (
-  IdOrder int IDENTITY(1,1) PRIMARY KEY,
-  DateOrder DATETIME not null,
-  FinalDateDeliveryOrder DATETIME not null,
-  CodeDeliveryOrder int not null,
+  IdOrders int IDENTITY(1,1) PRIMARY KEY,
+  Dater DATETIME not null,
+  FinalDateDelivery DATETIME not null,
+  CodeDelivery int not null,
   StatusOrder varchar(100) not null,
-  TypePaymentOrder varchar(50) not null,
-  StatusPaymentOrder varchar(50) not null,
-  idUser INT,
-  FOREIGN KEY (idUser) REFERENCES Users(idUser)
+  TypePayment varchar(50) not null,
+  StatusPayment varchar(50) not null,
+  IdUser INT not null,
+  FOREIGN KEY (idUser) REFERENCES Users(IdUsers)
 );
 
-CREATE TABLE Product (
- idProduct int IDENTITY(1,1) PRIMARY KEY NOT NULL,
- TitleProduct varchar(100) NOT NULL,
- DescriptionProduct text NOT NULL,
- CategoryProduct varchar(50) NOT NULL,
- QuantityProduct int NOT NULL,
- PriceProduct decimal(10,2) NOT NULL,
- ImageProduct varchar(150) not NULL,
-TagsProduct VARCHAR(100) not NULL ,
+CREATE TABLE Products (
+ IdProducts int IDENTITY(1,1) PRIMARY KEY,
+ Title varchar(100),
+ Descriptions text,
+ Category varchar(50),
+ Quantity int,
+ Price decimal(10,2),
+ Images varchar(150),
+ Tags VARCHAR(100),
 );
 
 CREATE TABLE ProductOrder (
- IdProduct int NOT NULL,
- IdOrder int Not null,
- QuantityProductOrder int not null,
- FOREIGN KEY (IdProduct) REFERENCES Product(idProduct),
- FOREIGN KEY (IdOrder) REFERENCES Orders(IdOrder)
+ IdProductOrder int IDENTITY(1,1) PRIMARY KEY,
+ IdProduct int not null,
+ IdOrder int not null,
+ Quantity int not null,
+ FOREIGN KEY (IdProduct) REFERENCES Products(IdProducts),
+ FOREIGN KEY (IdOrder) REFERENCES Orders(IdOrders)
 );
 
 /*CREATE TABLE Addresses (

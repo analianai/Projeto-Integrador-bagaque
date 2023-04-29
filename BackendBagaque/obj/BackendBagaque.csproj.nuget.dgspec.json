@@ -1,18 +1,17 @@
-<<<<<<< HEAD
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj": {}
+    "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj": {
+    "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj",
+        "projectUniqueName": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
         "projectName": "BackendBagaque",
-        "projectPath": "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\BackendBagaque.csproj",
+        "projectPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
         "packagesPath": "C:\\Users\\Carpe Diem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Carpe Diem\\Desktop\\Bagaque-20230414T232108Z-001\\Bagaque-20230414T232108Z-001\\Bagaque\\BackendBagaque\\obj\\",
+        "outputPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Carpe Diem\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +39,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -64,71 +73,4 @@
       }
     }
   }
-=======
-{
-  "format": 1,
-  "restore": {
-    "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj": {}
-  },
-  "projects": {
-    "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj",
-        "projectName": "BackendBagaque",
-        "projectPath": "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\BackendBagaque.csproj",
-        "packagesPath": "C:\\Users\\Carpe Diem\\.nuget\\packages\\",
-        "outputPath": "D:\\Digital House\\projetos\\Projeto Integrador Bagaque\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Carpe Diem\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
-        }
-      }
-    }
-  }
->>>>>>> main
 }

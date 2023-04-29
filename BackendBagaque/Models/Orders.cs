@@ -1,41 +1,39 @@
-<<<<<<< HEAD
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackendBagaque.Models
 {
-    public class Orders
+    public class Orders 
     {
-        public int Id { get; set; }
-        public DateTime Date { get; set; }
+        [Key]
+        public int IdOrders { get; set; }
+        public DateTime Dater { get; set; }
         public DateTime FinalDateDelivery { get; set; }
         public int CodeDelivery { get; set; }
-        public string Status{ get; set; }
+        public string StatusOrder { get; set; }
         public string TypePayment { get; set; }
         public string StatusPayment { get; set; }
- 
+        [Required]
+        public int IdUser { get; set; }
+        [ForeignKey("IdUser")]
+        public Users? User { get; set; }
     }
-}
-=======
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BackendBagaque.Models
-{
-    public class Orders
+    public class ProductOrder 
     {
-        public int IdOrder { get; set; }
-        public int DateOrder { get; set; }
-        public int FinalDateDeliveryOrder { get; set; }
-        public int CodeDeliveryOrder { get; set; }
-        public string StatusOrder { get; set; }
-        public string TypePaymentOrder { get; set; }
-        public string StatusPaymentOrder { get; set; }
- 
+        [Key]
+        public int IdProductOrder { get; set; }
+
+        [Required]
+        public int IdProduct { get; set; }
+        [ForeignKey("IdProduct")]
+        public Products? Product { get; set; }
+
+        [Required]
+        public int IdOrders { get; set; }
+        [ForeignKey("IdOrders")]
+        public Orders? Order { get; set; }
+
+        [Required]
+        public int Quantity { get; set; }
     }
 }
->>>>>>> main

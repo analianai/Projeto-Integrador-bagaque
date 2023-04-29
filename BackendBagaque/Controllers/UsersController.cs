@@ -1,81 +1,81 @@
-<<<<<<< HEAD
-﻿using BackendBagaque.Models;
+﻿using BackendBagaque.Data;
+using BackendBagaque.Models;
+using BackendBagaque.Services.Products;
+using BackendBagaque.Services.Users;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace BackendBagaque.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public class UsersController : Controller
     {
-       
-        public IActionResult Index()
+        private readonly UsersService usersService;
+        public UsersController(UsersService usersService)
         {
-            return Ok("GetAll");
+            this.usersService = usersService;
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetOne(int id)
+        [HttpGet]
+        public IActionResult GetAll()
         {
-            return Ok("GetOne");
+            return Ok(usersService.GetAll());
         }
 
-        [HttpPost]
-        public IActionResult Create([FromBody] Users users)
+        [HttpGet("{IdUsers}")]
+        public IActionResult GetOne(int IdUsers)
         {
-            return Ok("Create" + users.NameUser);
-        }
-
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] Users users)
-        {
-            return Ok("Update");
-        }
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            return Ok("Delete");
-        }
-    }
-}
-=======
-﻿using BackendBagaque.Models;
-using Microsoft.AspNetCore.Mvc;
-
-namespace BackendBagaque.Controllers
-{
-    [Route("[controller]")]
-    public class UsersController : Controller
-    {
-       
-        public IActionResult Index()
-        {
-            return Ok("GetAll");
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult GetOne(int id)
-        {
-            return Ok("GetOne");
+            var user = usersService.GetOne(IdUsers);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] Users users)
+        public IActionResult Create(Users user)
         {
-            return Ok("Create" + users.NameUser);
+            try
+            {
+                usersService.Create(user);
+                return Ok(user);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] Users users)
+        [HttpPut("{IdUsers}")]
+        public IActionResult Update(int IdUsers, Users user)
         {
-            return Ok("Update");
+            try
+            {
+                usersService.Update(IdUsers, user);
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("{IdUsers}")]
+        public IActionResult Delete(int IdUsers)
         {
-            return Ok("Delete");
+            try
+            {
+                usersService.Delete(IdUsers);
+                return Ok("Usuario deletado com sucesso "+IdUsers);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
     }
 }
->>>>>>> main
