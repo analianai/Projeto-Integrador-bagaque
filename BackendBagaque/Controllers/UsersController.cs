@@ -1,5 +1,6 @@
 ﻿using BackendBagaque.Data;
 using BackendBagaque.Models;
+using BackendBagaque.Services.Products;
 using BackendBagaque.Services.Users;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

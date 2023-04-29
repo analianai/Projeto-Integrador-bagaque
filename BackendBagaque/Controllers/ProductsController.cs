@@ -49,6 +49,21 @@ namespace Backend.Controllers
             }
         }
 
+        [HttpPost("{IdUsers}")]
+        public IActionResult CreateProductByAdm(Products product, int IdUsers)
+        {
+            try
+            {
+                productsService.CreateProductByAdm(product, IdUsers);
+                return Ok(product);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpPut("{IdProducts}")]
         public IActionResult Update(int IdProducts, Products product)
         {

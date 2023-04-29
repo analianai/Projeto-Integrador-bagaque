@@ -14,13 +14,13 @@ CREATE TABLE Users (
 
 CREATE TABLE Orders (
   IdOrders int IDENTITY(1,1) PRIMARY KEY,
-  Dater DATETIME,
-  FinalDateDelivery DATETIME,
-  CodeDelivery int,
-  StatusOrder varchar(100),
-  TypePayment varchar(50),
-  StatusPayment varchar(50),
-  IdUser INT,
+  Dater DATETIME not null,
+  FinalDateDelivery DATETIME not null,
+  CodeDelivery int not null,
+  StatusOrder varchar(100) not null,
+  TypePayment varchar(50) not null,
+  StatusPayment varchar(50) not null,
+  IdUser INT not null,
   FOREIGN KEY (idUser) REFERENCES Users(IdUsers)
 );
 
@@ -37,9 +37,9 @@ CREATE TABLE Products (
 
 CREATE TABLE ProductOrder (
  IdProductOrder int IDENTITY(1,1) PRIMARY KEY,
- IdProduct int,
- IdOrder int,
- Quantity int,
+ IdProduct int not null,
+ IdOrder int not null,
+ Quantity int not null,
  FOREIGN KEY (IdProduct) REFERENCES Products(IdProducts),
  FOREIGN KEY (IdOrder) REFERENCES Orders(IdOrders)
 );

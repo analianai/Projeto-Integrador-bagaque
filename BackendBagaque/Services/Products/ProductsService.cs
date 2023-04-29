@@ -29,6 +29,31 @@ namespace BackendBagaque.Services.Products
             context.SaveChanges();
             return products;
         }
+      
+        public Models.Products CreateProductByAdm(Models.Products products, int IdUsers)
+        {
+            var user = context.Users.FirstOrDefault(i => i.IdUsers == IdUsers);
+      
+            if (user == null || user.TypeUser != 2)
+            {
+                throw new Exception("Somente adminstrador do sistema, podem cadastrar produtos!");
+            }
+            else
+            {
+                var product = context.Products.FirstOrDefault(i => i.Title == products.Title);
+
+                if (product == null)
+                {
+                    context.Products.Add(products);
+                    context.SaveChanges();
+                    return products;
+                }
+                else
+                {
+                    throw new Exception("Já existe um produto cadastrado com esse nome!");
+                }
+            }
+        }
 
         public void Update(int IdProducts, Models.Products products)
         {

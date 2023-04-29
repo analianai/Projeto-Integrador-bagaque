@@ -6,7 +6,7 @@ namespace BackendBagaque.Services.Orders
     {
         private readonly BagaqueDBContext context;
 
-        public OrdersService(BagaqueDBContext context)
+        public OrdersService (BagaqueDBContext context)
         {
             this.context = context;
         }

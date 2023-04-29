@@ -10,7 +10,7 @@ namespace BackendBagaque.Controllers
     {
         private readonly OrdersService ordersService;
 
-        public OrdersController(OrdersService ordersService)
+        public OrdersController (OrdersService ordersService)
         {
             this.ordersService = ordersService;
         }
@@ -66,7 +66,7 @@ namespace BackendBagaque.Controllers
             try
             {
                 ordersService.Delete(IdOrders);
-                return Ok(IdOrders);
+                return Ok("Pedido Excluido com Sucesso " + IdOrders);
             }
             catch (Exception ex)
             {
