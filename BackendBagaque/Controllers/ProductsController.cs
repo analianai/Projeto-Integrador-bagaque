@@ -64,12 +64,13 @@ namespace Backend.Controllers
             }
         }
 
-        [HttpPut("{IdProducts}")]
-        public IActionResult Update(int IdProducts, Products product)
+     
+        [HttpPut("{IdProducts}/admin/{IdUsers}")]
+        public IActionResult UpdateProductByAdmin(int IdProducts, Products product, int IdUsers)
         {
             try
             {
-                productsService.Update(IdProducts, product);
+                productsService.UpdateProductByAdmin(IdProducts, product, IdUsers);
                 return Ok(product);
             }
             catch (Exception ex)
@@ -78,12 +79,12 @@ namespace Backend.Controllers
             }
         }
 
-        [HttpDelete("{IdProducts}")]
-        public IActionResult Delete(int IdProducts)
+        [HttpDelete("{IdProducts}/admin/{IdUsers}")]
+        public IActionResult DeleteProductByAdmin(int IdProducts, int IdUsers)
         {
             try
             {
-                productsService.Delete(IdProducts);
+                productsService.DeleteProductByAdmin(IdProducts, IdUsers);
                 return Ok(IdProducts);
             }
             catch (Exception ex)
