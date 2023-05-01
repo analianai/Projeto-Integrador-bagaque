@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj": {}
+    "C:\\Users\\Samis\\Documents\\IBRF\\Projeto BAGAQUE\\BackendBagaque\\BackendBagaque.csproj": {}
   },
   "projects": {
-    "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj": {
+    "C:\\Users\\Samis\\Documents\\IBRF\\Projeto BAGAQUE\\BackendBagaque\\BackendBagaque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
+        "projectUniqueName": "C:\\Users\\Samis\\Documents\\IBRF\\Projeto BAGAQUE\\BackendBagaque\\BackendBagaque.csproj",
         "projectName": "BackendBagaque",
-        "projectPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
-        "packagesPath": "C:\\Users\\Carpe Diem\\.nuget\\packages\\",
-        "outputPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\obj\\",
+        "projectPath": "C:\\Users\\Samis\\Documents\\IBRF\\Projeto BAGAQUE\\BackendBagaque\\BackendBagaque.csproj",
+        "packagesPath": "C:\\Users\\Samis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Samis\\Documents\\IBRF\\Projeto BAGAQUE\\BackendBagaque\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Carpe Diem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Samis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
