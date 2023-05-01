@@ -9,7 +9,7 @@ namespace BackendBagaque.Services.Products
 
         public string IdProducts { get; private set; }
 
-        public ProductsService (BagaqueDBContext context)
+        public ProductsService(BagaqueDBContext context)
         {
             this.context = context;
         }
@@ -25,13 +25,6 @@ namespace BackendBagaque.Services.Products
             return products;
         }
 
-        public Models.Products Create(Models.Products products)
-        {
-            context.Products.Add(products);
-            context.SaveChanges();
-            return products;
-        }
-      
         public Models.Products CreateProductByAdm(Models.Products products, int IdUsers)
         {
             var user = context.Users.FirstOrDefault(i => i.IdUsers == IdUsers);
@@ -60,7 +53,7 @@ namespace BackendBagaque.Services.Products
         public void UpdateProductByAdmin(int IdProducts, Models.Products products, int IdUsers)
         {
             var user = context.Users.FirstOrDefault(I => I.IdUsers == IdUsers);
-            if (user.TypeUser == 2)
+            if (user == null || user.TypeUser == 2)
             {
                 var productsToUpdate = context.Products.Find(IdProducts);
                 if (productsToUpdate != null)
@@ -76,20 +69,19 @@ namespace BackendBagaque.Services.Products
                 }
                 else
                 {
-                    throw new Exception("Produto não encontrada para o ID " + IdProducts);
+                    throw new Exception("Produto não encontrado para o ID " + IdProducts);
                 }
             }
             else
             {
-                throw new Exception("Usuario não pode atualizar produto!" + IdUsers);
+                throw new Exception("Somente usuário admin pode Atualizar Produto!" );
             }
-        }
-
-
+        }        
+        
         public void DeleteProductByAdmin(int IdProducts, int IdUsers)
         {
             var user = context.Users.FirstOrDefault(I => I.IdUsers == IdUsers);
-            if (user.TypeUser == 2)
+            if (user == null || user.TypeUser == 2)
             {
                 var productsToRemove = context.Products.Find(IdProducts);
                 if (productsToRemove != null)
@@ -104,7 +96,7 @@ namespace BackendBagaque.Services.Products
             }
             else
             {
-                throw new Exception("Usuario não pode Deletar produto!" + IdUsers);
+                throw new Exception("Somente usuário admin pode Deletar Produto" + IdUsers);
             }
         }
     }

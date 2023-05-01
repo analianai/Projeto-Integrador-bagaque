@@ -34,21 +34,6 @@ namespace Backend.Controllers
             return Ok(products);
         }
 
-        [HttpPost]
-        public IActionResult Create(Products product)
-        {
-            try
-            {
-                productsService.Create(product);
-                return Ok(product);
-
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
         [HttpPost("{IdUsers}")]
         public IActionResult CreateProductByAdm(Products product, int IdUsers)
         {
