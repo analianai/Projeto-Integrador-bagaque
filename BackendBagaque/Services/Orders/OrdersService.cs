@@ -22,32 +22,66 @@ namespace BackendBagaque.Services.Orders
             return orders;
         }
 
-        public Models.Orders Create(Models.Orders orders)
+ 
+        public Models.Orders CreateOrdersByAdm(Models.Orders orders,int IdUsers)
         {
-            context.Orders.Add(orders);
-            context.SaveChanges();
-            return orders;
+           var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if (user == null || user.TypeUser != 2)
+            {
+                throw new Exception("Liberação só para usuario admin");
+
+            }
+            else
+            {
+                context.Orders.Add(orders);
+                context.SaveChanges();
+                return orders;
+            }
         }
 
-        public void Update(int IdOrders, Models.Orders orders)
+
+
+        public void UpdateOrdersBy(int IdOrders, Models.Orders orders)
         {
             var ordersToUpdate = context.Orders.Find(IdOrders);
             if (ordersToUpdate != null)
             {
-                ordersToUpdate.Dater = orders.Dater;
-                ordersToUpdate.FinalDateDelivery = orders.FinalDateDelivery;
-                ordersToUpdate.CodeDelivery = orders.CodeDelivery;
-                ordersToUpdate.StatusOrder = orders.StatusOrder;
                 ordersToUpdate.TypePayment = orders.TypePayment;
-                ordersToUpdate.StatusPayment = orders.StatusPayment;
-                ordersToUpdate.IdUser = orders.IdUser;
-
                 context.SaveChanges();
             }
             else
             {
                 throw new Exception("Pedido não encontrado para o ID " + IdOrders);
             }
+        }
+
+
+        public void UpdateOrdersByAdmin(int IdOrders, Models.Orders orders, int IdUsers)
+        { 
+            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if (user == null || user.TypeUser != 2)
+            {
+                throw new Exception("Liberação só para usuario admin");
+            }
+            else
+            {
+                var ordersToUpdate = context.Orders.Find(IdOrders);
+                if (ordersToUpdate != null)
+                {
+                    ordersToUpdate.FinalDateDelivery = orders.FinalDateDelivery;
+                    ordersToUpdate.CodeDelivery = orders.CodeDelivery;
+                    ordersToUpdate.StatusOrder = orders.StatusOrder;
+                    ordersToUpdate.StatusPayment = orders.StatusPayment;
+                    ordersToUpdate.IdUser = orders.IdUser;
+
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Pedido não encontrado para o ID " + IdOrders);
+                }
+            }
+
         }
 
         public void Delete(int IdOrders)

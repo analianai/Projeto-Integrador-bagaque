@@ -32,12 +32,14 @@ namespace BackendBagaque.Controllers
             return Ok(order);
         }
 
-        [HttpPost]
-        public IActionResult Create(Orders order)
+     
+
+        [HttpPost("{IdUsers}")]
+        public IActionResult CreateOrdersByAdmin(Orders order, int idUsers )
         {
             try
             {
-                ordersService.Create(order);
+                ordersService.CreateOrdersByAdm(order, idUsers);
                 return Ok(order);
             }
             catch (Exception ex)
@@ -46,12 +48,26 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        [HttpPut("{IdOrders}")]
-        public IActionResult Update(int IdOrders, Orders order)
+        [HttpPut("by/{IdOrders}")]
+        public IActionResult UpdateOrdersBy(int IdOrders, Orders order)
         {
             try
             {
-                ordersService.Update(IdOrders, order);
+                ordersService.UpdateOrdersBy(IdOrders, order);
+                return Ok(order.TypePayment);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{IdOrders}/admin/{IdUsers}")]
+        public IActionResult UpdateOrdersByAdmin(int IdOrders, Orders order, int IdUsers)
+        {
+            try
+            {
+                ordersService.UpdateOrdersByAdmin(IdOrders, order, IdUsers);
                 return Ok(order);
             }
             catch (Exception ex)

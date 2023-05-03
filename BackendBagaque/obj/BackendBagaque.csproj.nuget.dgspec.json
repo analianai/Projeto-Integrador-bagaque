@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj": {}
+    "C:\\Users\\Digital\\Desktop\\baganquê\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj": {}
   },
   "projects": {
-    "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj": {
+    "C:\\Users\\Digital\\Desktop\\baganquê\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
+        "projectUniqueName": "C:\\Users\\Digital\\Desktop\\baganquê\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
         "projectName": "BackendBagaque",
-        "projectPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
-        "packagesPath": "C:\\Users\\Carpe Diem\\.nuget\\packages\\",
-        "outputPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\obj\\",
+        "projectPath": "C:\\Users\\Digital\\Desktop\\baganquê\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
+        "packagesPath": "C:\\Users\\Digital\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Digital\\Desktop\\baganquê\\Projeto-Integrador-bagaque\\BackendBagaque\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Carpe Diem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Digital\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
