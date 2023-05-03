@@ -1,4 +1,4 @@
-use BagaqueDB
+use baganquê
 
 CREATE TABLE Users (
   IdUsers int IDENTITY(1,1) PRIMARY KEY,
@@ -14,7 +14,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Orders (
   IdOrders int IDENTITY(1,1) PRIMARY KEY,
-  Dater DATETIME not null,
+  Dater DATETIME NOT null DEFAULT(CURRENT_TIMESTAMP),
   FinalDateDelivery DATETIME not null,
   CodeDelivery int not null,
   StatusOrder varchar(100) not null,

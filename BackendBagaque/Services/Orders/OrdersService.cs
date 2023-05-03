@@ -34,7 +34,6 @@ namespace BackendBagaque.Services.Orders
             var ordersToUpdate = context.Orders.Find(IdOrders);
             if (ordersToUpdate != null)
             {
-                ordersToUpdate.Dater = orders.Dater;
                 ordersToUpdate.FinalDateDelivery = orders.FinalDateDelivery;
                 ordersToUpdate.CodeDelivery = orders.CodeDelivery;
                 ordersToUpdate.StatusOrder = orders.StatusOrder;

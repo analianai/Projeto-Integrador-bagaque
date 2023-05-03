@@ -41,7 +41,6 @@ namespace Backend.Controllers
             {
                 productsService.CreateProductByAdm(product, IdUsers);
                 return Ok(product);
-
             }
             catch (Exception ex)
             {

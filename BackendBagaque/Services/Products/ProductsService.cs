@@ -27,7 +27,7 @@ namespace BackendBagaque.Services.Products
 
         public Models.Products CreateProductByAdm(Models.Products products, int IdUsers)
         {
-            var user = context.Users.FirstOrDefault(i => i.IdUsers == IdUsers);
+            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
       
             if (user == null || user.TypeUser != 2)
             {
@@ -35,7 +35,7 @@ namespace BackendBagaque.Services.Products
             }
             else
             {
-                var product = context.Products.FirstOrDefault(c => c.Title == products.Title);
+                var product = context.Products.FirstOrDefault(p => p.Title == products.Title);
 
                 if (product == null)
                 {
@@ -52,7 +52,7 @@ namespace BackendBagaque.Services.Products
 
         public void UpdateProductByAdmin(int IdProducts, Models.Products products, int IdUsers)
         {
-            var user = context.Users.FirstOrDefault(I => I.IdUsers == IdUsers);
+            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
             if (user == null || user.TypeUser == 2)
             {
                 var productsToUpdate = context.Products.Find(IdProducts);
@@ -96,7 +96,7 @@ namespace BackendBagaque.Services.Products
             }
             else
             {
-                throw new Exception("Somente usuário admin pode Deletar Produto" + IdUsers);
+                throw new Exception("Somente usuário admin pode Deletar Produto " + IdUsers);
             }
         }
     }
