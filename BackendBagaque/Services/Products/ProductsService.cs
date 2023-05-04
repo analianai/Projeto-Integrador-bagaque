@@ -81,7 +81,7 @@ namespace BackendBagaque.Services.Products
         public void DeleteProductByAdmin(int IdProducts, int IdUsers)
         {
             var user = context.Users.FirstOrDefault(I => I.IdUsers == IdUsers);
-            if (user == null || user.TypeUser == 2)
+            if (user != null && user.TypeUser == 2)
             {
                 var productsToRemove = context.Products.Find(IdProducts);
                 if (productsToRemove != null)
