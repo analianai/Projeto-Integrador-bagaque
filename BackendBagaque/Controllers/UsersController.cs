@@ -35,13 +35,12 @@ namespace BackendBagaque.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Users user)
+        public IActionResult CreateByUser(Users users)
         {
             try
             {
-                usersService.Create(user);
-                return Ok(user);
-
+                usersService.CreateByUser(users);
+                return Ok(users);
             }
             catch (Exception ex)
             {

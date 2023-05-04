@@ -17,6 +17,7 @@ builder.Services.AddDbContext<BagaqueDBContext>(options => {
 builder.Services.AddScoped<UsersService>();
 builder.Services.AddScoped<ProductsService>();
 builder.Services.AddScoped<OrdersService>();
+builder.Services.AddScoped<ProductOrder>();
 
 builder.Services.AddControllers();
 
