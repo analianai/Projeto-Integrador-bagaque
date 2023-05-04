@@ -48,6 +48,7 @@ namespace Backend.Controllers
             }
         }
 
+
      
         [HttpPut("{IdProducts}/admin/{IdUsers}")]
         public IActionResult UpdateProductByAdmin(int IdProducts, Products product, int IdUsers)
@@ -55,6 +56,7 @@ namespace Backend.Controllers
             try
             {
                 productsService.UpdateProductByAdmin(IdProducts, product, IdUsers);
+
                 return Ok(product);
             }
             catch (Exception ex)
@@ -69,6 +71,7 @@ namespace Backend.Controllers
             try
             {
                 productsService.DeleteProductByAdmin(IdProducts, IdUsers);
+
                 return Ok(IdProducts);
             }
             catch (Exception ex)

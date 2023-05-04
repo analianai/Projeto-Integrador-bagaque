@@ -27,15 +27,13 @@ namespace BackendBagaque.Services.Products
 
         public Models.Products CreateProductByAdm(Models.Products products, int IdUsers)
         {
-            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
-      
+            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);     
             if (user == null || user.TypeUser != 2)
             {
                 throw new Exception("Somente adminstrador do sistema, podem cadastrar produtos!");
             }
             else
             {
-                var product = context.Products.FirstOrDefault(p => p.Title == products.Title);
 
                 if (product == null)
                 {
@@ -49,6 +47,7 @@ namespace BackendBagaque.Services.Products
                 }
             }
         }
+
 
         public void UpdateProductByAdmin(int IdProducts, Models.Products products, int IdUsers)
         {
