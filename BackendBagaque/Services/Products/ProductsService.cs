@@ -7,7 +7,9 @@ namespace BackendBagaque.Services.Products
     {
         private readonly BagaqueDBContext context;
 
-        public ProductsService (BagaqueDBContext context)
+        public string IdProducts { get; private set; }
+
+        public ProductsService(BagaqueDBContext context)
         {
             this.context = context;
         }
@@ -23,24 +25,15 @@ namespace BackendBagaque.Services.Products
             return products;
         }
 
-        public Models.Products Create(Models.Products products)
-        {
-            context.Products.Add(products);
-            context.SaveChanges();
-            return products;
-        }
-      
         public Models.Products CreateProductByAdm(Models.Products products, int IdUsers)
         {
-            var user = context.Users.FirstOrDefault(i => i.IdUsers == IdUsers);
-      
+            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);     
             if (user == null || user.TypeUser != 2)
             {
                 throw new Exception("Somente adminstrador do sistema, podem cadastrar produtos!");
             }
             else
             {
-                var product = context.Products.FirstOrDefault(i => i.Title == products.Title);
 
                 if (product == null)
                 {
@@ -55,39 +48,54 @@ namespace BackendBagaque.Services.Products
             }
         }
 
-        public void Update(int IdProducts, Models.Products products)
+
+        public void UpdateProductByAdmin(int IdProducts, Models.Products products, int IdUsers)
         {
-            var productsToUpdate = context.Products.Find(IdProducts);
-            if (productsToUpdate != null)
+            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if (user == null || user.TypeUser == 2)
             {
-                productsToUpdate.Title = products.Title;
-                productsToUpdate.Descriptions = products.Descriptions;
-                productsToUpdate.Category = products.Category;
-                productsToUpdate.Quantity = products.Quantity;
-                productsToUpdate.Price = products.Price;
-                productsToUpdate.Images = products.Images;
-                productsToUpdate.Tags = products.Tags;
-
-
-                context.SaveChanges();
+                var productsToUpdate = context.Products.Find(IdProducts);
+                if (productsToUpdate != null)
+                {
+                    productsToUpdate.Title = products.Title;
+                    productsToUpdate.Descriptions = products.Descriptions;
+                    productsToUpdate.Category = products.Category;
+                    productsToUpdate.Quantity = products.Quantity;
+                    productsToUpdate.Price = products.Price;
+                    productsToUpdate.Images = products.Images;
+                    productsToUpdate.Tags = products.Tags;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Produto não encontrado para o ID " + IdProducts);
+                }
             }
             else
             {
-                throw new Exception("Produto não encontrado para o ID " + IdProducts);
+                throw new Exception("Somente usuário admin pode Atualizar Produto!" );
             }
-        }
-
-        public void Delete(int IdProducts)
+        }        
+        
+        public void DeleteProductByAdmin(int IdProducts, int IdUsers)
         {
-            var productsToRemove = context.Products.Find(IdProducts);
-            if (productsToRemove != null)
+            var user = context.Users.FirstOrDefault(I => I.IdUsers == IdUsers);
+            if (user != null && user.TypeUser == 2)
             {
-                context.Products.Remove(productsToRemove);
-                context.SaveChanges();
+                var productsToRemove = context.Products.Find(IdProducts);
+                if (productsToRemove != null)
+                {
+                    context.Products.Remove(productsToRemove);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Produto não encontrado para o id " + IdProducts);
+                }
             }
             else
             {
-                throw new Exception("Produto não encontrado para o id " + IdProducts);
+                throw new Exception("Somente usuário admin pode Deletar Produto " + IdUsers);
             }
         }
     }

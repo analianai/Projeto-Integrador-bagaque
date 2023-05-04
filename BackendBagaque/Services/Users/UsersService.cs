@@ -1,4 +1,5 @@
 ﻿using BackendBagaque.Data;
+using BackendBagaque.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendBagaque.Services.Users
@@ -23,11 +24,27 @@ namespace BackendBagaque.Services.Users
             return user;
         }
 
-        public Models.Users Create(Models.Users user)
+        public Models.Users CreateByUser(Models.Users users)
         {
-            context.Users.Add(user);
-            context.SaveChanges();
-            return user;
+            var user = context.Users.FirstOrDefault(c => c.CPF == users.CPF);
+            if (user == null)
+            {
+                var usercpf = context.Users.FirstOrDefault(c => c.EmailLogin == users.EmailLogin);
+                if (usercpf == null)
+                {
+                    context.Users.Add(users);
+                    context.SaveChanges();
+                    return users;
+                }
+                else
+                {
+                    throw new Exception("Já existe um Email já cadastrado!");
+                }
+            }
+            else
+            {
+                throw new Exception("Já existe um CPF já cadastrado!");
+            }
         }
 
         public void Update(int IdUser, Models.Users user)

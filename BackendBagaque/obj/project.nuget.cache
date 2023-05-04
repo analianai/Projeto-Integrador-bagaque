@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5EVXEYll8gaBQt/ZTK7VO8pPXOVlIdVtcjm9i8QmOpsG37KHrPIUzGJKFMY4UWpjbwUwR5bkXFtLObk0Z6Uytw==",
+  "dgSpecHash": "uiKs7d1/MfW4oGpSqH6bjJwxWE0Rm4JCeraRj19Yit4ZEYPi7+DH7FpgK9nlSL0so4BePSPlU7V4klxOFOOYcg==",
   "success": true,
-  "projectFilePath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
+  "projectFilePath": "D:\\Digital House\\projetos\\Branch\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carpe Diem\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Carpe Diem\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
