@@ -34,20 +34,6 @@ namespace BackendBagaque.Controllers
         }
 
         [HttpPost("{IdUsers}")]
-        public IActionResult CreateOrdersBy(Orders order, int idUsers)
-        {
-            try
-            {
-                ordersService.CreateOrdersByAdm(order, idUsers);
-                return Ok(order.TypePayment);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-        [HttpPost("{IdUsers}")]
         public IActionResult CreateOrdersByAdmin(Orders order, int idUsers)
         {
             try
@@ -122,7 +108,7 @@ namespace BackendBagaque.Controllers
             return Ok(productorder);
         }
 
-        [HttpPost("productorder")]
+        [HttpPost("createproductorder")]
         public IActionResult CreateProductOrdersBy(ProductOrder productorder)
         {
             try

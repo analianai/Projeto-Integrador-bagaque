@@ -1,6 +1,5 @@
-﻿using BackendBagaque.Data;
-using BackendBagaque.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using BackendBagaque.Models;
+using BackendBagaque.Data;
 
 namespace BackendBagaque.Services.Orders
 {
@@ -27,23 +26,7 @@ namespace BackendBagaque.Services.Orders
             return orders;
         }
 
-        //Este END POINT Cria dados para Tabela Order por id do Usuario Global
-        public Models.Orders CreateOrdersBy(Models.Orders orders, int IdUsers)
-        {
-            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
-            if (user == null)
-            {
-                throw new Exception("Tipo de pagamento invalido");
-            }
-            else
-            {
-                context.Orders.Add(orders);
-                context.SaveChanges();
-                return orders;
-            }
-        }
-
-        //Este END POINT Cria dados para Tabela Order por id do Usuario ADm
+       //Este END POINT Cria dados para Tabela Order por id do Usuario ADm
         public Models.Orders CreateOrdersByAdm(Models.Orders orders, int IdUsers)
         {
             var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
@@ -145,8 +128,6 @@ namespace BackendBagaque.Services.Orders
                 context.ProductOrder.Add(productorder);
                 context.SaveChanges();
                 return productorder;
-            }
         }
-
     }
 }
