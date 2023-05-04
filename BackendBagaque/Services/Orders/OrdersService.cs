@@ -125,7 +125,7 @@ namespace BackendBagaque.Services.Orders
             }
         }
 
-        /*                  SERVICES ORDERS/  PRODUCORDER       */
+        /*                  SERVICES ORDERS/  PRODUCORDER          */
         public List<Models.ProductOrder> GetProductOrderAll()
         {
             return context.ProductOrder.ToList();
