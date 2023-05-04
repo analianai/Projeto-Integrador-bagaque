@@ -3185,11 +3185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
+      "projectUniqueName": "D:\\Digital House\\projetos\\Branch\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
       "projectName": "BackendBagaque",
-      "projectPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
+      "projectPath": "D:\\Digital House\\projetos\\Branch\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
       "packagesPath": "C:\\Users\\Carpe Diem\\.nuget\\packages\\",
-      "outputPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\obj\\",
+      "outputPath": "D:\\Digital House\\projetos\\Branch\\Projeto-Integrador-bagaque\\BackendBagaque\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Carpe Diem\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -12,13 +12,13 @@ VALUES
 
 Select*From Orders
 
-INSERT INTO Orders (Dater,FinalDateDelivery,CodeDelivery,StatusOrder,TypePayment,StatusPayment,I)
+INSERT INTO Orders (FinalDateDelivery,CodeDelivery,StatusOrder,TypePayment,StatusPayment,IdUser)
 VALUES 
-(2022-04-22, 2023-05-23, 14,'Aguardando Pagamento','Cartão Credito','Processando Pagamento',1),
-(2023-04-03, 2023-05-05, 2,'Em separação','Pix','Pagamento Efetuado',3),
-(2023-04-03, 2023-05-02, 13,'Pedido Encaminhado para trasportadora','Cartão Debito','Pagamento Efetuado',4),
-(2023-04-03, 2023-04-23, 3,'Entregue','Pix','Pagamento Efetuado',3),
-(2023-04-03, 2023-04-23, 12,'Aguardando Pagamento','Cartão Credito','Processando Pagamento',2)
+( 2023-05-23, 14,'Aguardando Pagamento','Cartão Credito','Processando Pagamento',1),
+( 2023-05-05, 2,'Em separação','Pix','Pagamento Efetuado',3),
+( 2023-05-02, 13,'Pedido Encaminhado para trasportadora','Cartão Debito','Pagamento Efetuado',4),
+( 2023-04-23, 3,'Entregue','Pix','Pagamento Efetuado',3),
+( 2023-04-23, 12,'Aguardando Pagamento','Cartão Credito','Processando Pagamento',2)
 
 Select*From Products
 
@@ -80,7 +80,7 @@ Select*From ProductOrder
 INSERT INTO ProductOrder (idProduct,idOrder,Quantity)
 VALUES
 (1,3, 5),
-(1,7, 15),
+(1,2, 15),
 (2,3, 25),
 (3,4, 2),
 (4,5, 1)
