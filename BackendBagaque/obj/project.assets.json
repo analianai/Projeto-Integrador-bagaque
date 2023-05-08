@@ -3180,19 +3180,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Carpe Diem\\.nuget\\packages\\": {}
+    "C:\\Users\\nando\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
+      "projectUniqueName": "D:\\Documentos\\projeto_IBRF\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
       "projectName": "BackendBagaque",
-      "projectPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
-      "packagesPath": "C:\\Users\\Carpe Diem\\.nuget\\packages\\",
-      "outputPath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\obj\\",
+      "projectPath": "D:\\Documentos\\projeto_IBRF\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
+      "packagesPath": "C:\\Users\\nando\\.nuget\\packages\\",
+      "outputPath": "D:\\Documentos\\projeto_IBRF\\Projeto-Integrador-bagaque\\BackendBagaque\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Carpe Diem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nando\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3246,7 +3246,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -35,13 +35,26 @@ namespace BackendBagaque.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Users user)
+        public IActionResult CreateByUser(Users users)
         {
             try
             {
-                usersService.Create(user);
-                return Ok(user);
+                usersService.CreateByUser(users);
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
+        [HttpPut("{IdUser}/admin/{IdUsers}")]
+        public IActionResult Update(int IdUser, Users user, int IdUsers) // IdUser = Id do objeto, IdUsers = usuário de autenticação
+        {
+            try
+            {
+                usersService.Update(IdUser, user, IdUsers);
+                return Ok(user);
             }
             catch (Exception ex)
             {
@@ -50,11 +63,11 @@ namespace BackendBagaque.Controllers
         }
 
         [HttpPut("{IdUsers}")]
-        public IActionResult Update(int IdUsers, Users user)
+        public IActionResult UpdateBy(int IdUsers, Models.Users user) // IdUsers = usuário de autenticação
         {
             try
             {
-                usersService.Update(IdUsers, user);
+                usersService.UpdateBy(IdUsers, user);
                 return Ok(user);
             }
             catch (Exception ex)

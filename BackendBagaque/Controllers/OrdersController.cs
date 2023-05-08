@@ -10,11 +10,12 @@ namespace BackendBagaque.Controllers
     {
         private readonly OrdersService ordersService;
 
-        public OrdersController (OrdersService ordersService)
+        public OrdersController(OrdersService ordersService)
         {
             this.ordersService = ordersService;
         }
 
+        /*                 CONTROLLE ORDERS            */
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -32,12 +33,12 @@ namespace BackendBagaque.Controllers
             return Ok(order);
         }
 
-        [HttpPost]
-        public IActionResult Create(Orders order)
+        [HttpPost("{IdUsers}")]
+        public IActionResult CreateOrdersByAdmin(Orders order, int idUsers)
         {
             try
             {
-                ordersService.Create(order);
+                ordersService.CreateOrdersByAdm(order, idUsers);
                 return Ok(order);
             }
             catch (Exception ex)
@@ -46,12 +47,26 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        [HttpPut("{IdOrders}")]
-        public IActionResult Update(int IdOrders, Orders order)
+        [HttpPut("by/{IdOrders}")]
+        public IActionResult UpdateOrdersBy(int IdOrders, Orders order)
         {
             try
             {
-                ordersService.Update(IdOrders, order);
+                ordersService.UpdateOrdersBy(IdOrders, order);
+                return Ok(order.TypePayment);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("{IdOrders}/admin/{IdUsers}")]
+        public IActionResult UpdateOrdersByAdmin(int IdOrders, Orders order, int IdUsers)
+        {
+            try
+            {
+                ordersService.UpdateOrdersByAdmin(IdOrders, order, IdUsers);
                 return Ok(order);
             }
             catch (Exception ex)
@@ -60,19 +75,51 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        [HttpDelete("{IdOrders}")]
-        public IActionResult Delete(int IdOrders)
+        [HttpDelete("{IdOrders}/admin/{IdUsers}")]
+        public IActionResult DeleteOrderByAdm(int IdOrders, int IdUsers)
         {
             try
             {
-                ordersService.Delete(IdOrders);
+                ordersService.DeleteOrderByAdm(IdOrders, IdUsers);
                 return Ok("Pedido Excluido com Sucesso " + IdOrders);
             }
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
+        }
 
+        /*          CONTROLLER ORDERS/PRODUCTORDER                     */
+
+        [HttpGet("productorder")]
+        public IActionResult GetProductOrderAll()
+        {
+            return Ok(ordersService.GetProductOrderAll());
+        }
+
+        [HttpGet("productorder/{IdProductOrder}")]
+        public IActionResult GetOneProductOrder(int IdProductOrder)
+        {
+            var productorder = ordersService.GetOneProductOrder(IdProductOrder);
+            if (productorder == null)
+            {
+                return NotFound();
+            }
+            return Ok(productorder);
+        }
+
+        [HttpPost("createproductorder")]
+        public IActionResult CreateProductOrdersBy(ProductOrder productorder)
+        {
+            try
+            {
+                ordersService.CreateProductOrdersBy(productorder);
+                return Ok(productorder);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

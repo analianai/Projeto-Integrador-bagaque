@@ -29,8 +29,8 @@ namespace BackendBagaque.Models
         public Products? Product { get; set; }
 
         [Required]
-        public int IdOrders { get; set; }
-        [ForeignKey("IdOrders")]
+        public int IdOrder { get; set; }
+        [ForeignKey("IdOrder")]
         public Orders? Order { get; set; }
 
         [Required]
