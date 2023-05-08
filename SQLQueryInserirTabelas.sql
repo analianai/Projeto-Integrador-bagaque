@@ -14,7 +14,7 @@ CREATE TABLE Users (
 
 CREATE TABLE Orders (
   IdOrders int IDENTITY(1,1) PRIMARY KEY,
-  Dater DATETIME NOT null DEFAULT(CURRENT_TIMESTAMP),
+  Dater DATETIME not null,
   FinalDateDelivery DATETIME not null,
   CodeDelivery int not null,
   StatusOrder varchar(100) not null,
