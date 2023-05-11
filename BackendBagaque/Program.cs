@@ -1,12 +1,10 @@
 using BackendBagaque.Data;
 using BackendBagaque.Models;
-using BackendBagaque.Services.ProducsOrders;
 using BackendBagaque.Services.Users;
 using BackendBagaque.Services.Products;
 using BackendBagaque.Services.Orders;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using BackendBagaque.Services.ProducsOrders;
 
 var builder = WebApplication.CreateBuilder(args);
 
