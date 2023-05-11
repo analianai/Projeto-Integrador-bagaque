@@ -10,12 +10,12 @@ namespace BackendBagaque.Controllers
     public class OrdersController : Controller
     {
         private readonly OrdersService ordersService;
-        private readonly ProductsOrdersService productsOrdersService;
+        
 
-        public OrdersController(OrdersService ordersService, ProductsOrdersService productsOrdersService)
+        public OrdersController(OrdersService ordersService)
         {
             this.ordersService = ordersService;
-            this.productsOrdersService = productsOrdersService;
+           
         }
 
         [HttpGet]
@@ -110,13 +110,13 @@ namespace BackendBagaque.Controllers
         [HttpGet("productsorders")]
         public IActionResult GetProductsOrdersAll()
         {
-            return Ok(productsOrdersService.GetProductsOrdersAll());
+            return Ok(ordersService.GetProductsOrdersAll());
         }
 
         [HttpGet("productsorders/{IdProductsOrders}")]
         public IActionResult GetOneProductsOrders(int IdProductsOrders)
         {
-            var productsorders = productsOrdersService.GetOneProductsOrders(IdProductsOrders);
+            var productsorders = ordersService.GetOneProductsOrders(IdProductsOrders);
             if (productsorders == null)
             {
                 return NotFound();
@@ -129,7 +129,7 @@ namespace BackendBagaque.Controllers
         {
             try
             {
-                return Ok(productsOrdersService.CreateProductsOrdersBy(productsorders));
+                return Ok(ordersService.CreateProductsOrdersBy(productsorders));
             }
             catch (Exception ex)
             {
@@ -142,7 +142,7 @@ namespace BackendBagaque.Controllers
         {
             try
             {
-                productsOrdersService.UpdateProductOrdersBy(productsorders, IdProductsOrders);
+                ordersService.UpdateProductOrdersBy(productsorders, IdProductsOrders);
                 return Ok(productsorders);
             }
             catch (Exception ex)
@@ -156,7 +156,7 @@ namespace BackendBagaque.Controllers
         {
             try
             {
-                productsOrdersService.DeleteProductOrderBy(IdProductsOrders);
+                ordersService.DeleteProductOrderBy(IdProductsOrders);
                 return Ok("Pedido Excluido com Sucesso " + IdProductsOrders);
             }
             catch (Exception ex)
