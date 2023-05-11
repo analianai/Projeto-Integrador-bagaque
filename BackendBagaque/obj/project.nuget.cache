@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "5EVXEYll8gaBQt/ZTK7VO8pPXOVlIdVtcjm9i8QmOpsG37KHrPIUzGJKFMY4UWpjbwUwR5bkXFtLObk0Z6Uytw==",
+  "dgSpecHash": "a2h7OSsPyv23B7TcCL5Hb9O+f8B5WlGDznZf0pY2nzO8HUMFaUPK7IJ0mIzBHVIqkxNV72wHGJ6PNFu4O/tSfw==",
   "success": true,
   "projectFilePath": "D:\\Digital House\\projetos\\Projeto-Integrador-bagaque\\BackendBagaque\\BackendBagaque.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Carpe Diem\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Carpe Diem\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Carpe Diem\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.5\\microsoft.aspnetcore.authentication.jwtbearer.7.0.5.nupkg.sha512",
     "C:\\Users\\Carpe Diem\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Carpe Diem\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Carpe Diem\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

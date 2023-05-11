@@ -12,7 +12,6 @@ namespace BackendBagaque.Services.Orders
             this.context = context;
         }
 
-        /*                  SERVICES ORDERS                     */ 
         //Este END POINT Seleciona toda a tabela Order
         public List<Models.Orders> GetAll()
         {
@@ -26,35 +25,52 @@ namespace BackendBagaque.Services.Orders
             return orders;
         }
 
-       //Este END POINT Cria dados para Tabela Order por id do Usuario ADm
-        public Models.Orders CreateOrdersByAdm(Models.Orders orders, int IdUsers)
+        //Este END POINT Cria dados para Tabela Order por id do Usuario Global
+        public Models.Orders CreateOrdersBy(Models.Orders orders, int IdUsers)
         {
             var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
-            if (user == null || user.TypeUser != 2)
-            {
-                throw new Exception("Liberação só para usuario admin");
-            }
-            else
+            if (user != null)
             {
                 context.Orders.Add(orders);
                 context.SaveChanges();
                 return orders;
             }
+            else
+            {
+                throw new Exception("Liberação só para usuario admin");
+            }
+        }
+
+        //Este END POINT Cria dados para Tabela Order por id do Usuario ADm
+        public Models.Orders CreateOrdersByAdm(Models.Orders orders, int IdUsers)
+        {
+            var user = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if ( user != null && user.TypeUser == 2)
+            {
+                context.Orders.Add(orders);
+                context.SaveChanges();
+                return orders;
+            }
+            else
+            {
+                throw new Exception("Liberação só para usuario admin");
+            }
         }
 
         //Este END POINT Atualiza os dados para Tabela Order por id do Usuario global
-        public void UpdateOrdersBy(int IdOrders, Models.Orders orders)
+        public void UpdateOrdersBy(int IdOrders, Models.Orders orders, int IdUsers)
         {
+            var owner = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if (owner == null)
+            {
+                throw new Exception($"Não foi encontrado Usuário para esse ID: {IdUsers}");
+            }
             var ordersToUpdate = context.Orders.Find(IdOrders);
             if (ordersToUpdate != null)
             {
                 ordersToUpdate.TypePayment = orders.TypePayment;
                 context.SaveChanges();
-            }
-            else
-            {
-                throw new Exception("Pedido não encontrado para o ID " + IdOrders);
-            }
+            }          
         }
 
         //Este END POINT Atualiza os dados para Tabela Order por id do Usuario Adm
@@ -73,6 +89,7 @@ namespace BackendBagaque.Services.Orders
                     ordersToUpdate.FinalDateDelivery = orders.FinalDateDelivery;
                     ordersToUpdate.CodeDelivery = orders.CodeDelivery;
                     ordersToUpdate.StatusOrder = orders.StatusOrder;
+                    ordersToUpdate.TypePayment = orders.TypePayment;
                     ordersToUpdate.StatusPayment = orders.StatusPayment;
                     ordersToUpdate.IdUser = orders.IdUser;
 
@@ -87,7 +104,7 @@ namespace BackendBagaque.Services.Orders
         }
 
         //Este END POINT Deleta os dados para Tabela Order por id do Usuario global
-        public void DeleteOrderByAdm(int IdOrders,int IdUsers)
+        public void DeleteOrderByAdm(int IdOrders, int IdUsers)
         {
             var use = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
             if (use != null && use.TypeUser == 2)
@@ -107,27 +124,6 @@ namespace BackendBagaque.Services.Orders
             {
                 throw new Exception("Liberação só para usuario admin");
             }
-        }
-
-        /*                  SERVICES ORDERS/  PRODUCORDER          */
-        public List<Models.ProductOrder> GetProductOrderAll()
-        {
-            return context.ProductOrder.ToList();
-        }
-
-        //Este END POINT Seleciona por id a tabela Order
-        public Models.ProductOrder GetOneProductOrder(int IdProductOrder)
-        {
-            var productorder = context.ProductOrder.Find(IdProductOrder);
-            return productorder;
-        }
-
-        //Este END POINT Cria dados para Tabela ProductOrder por id do Usuario Global
-        public Models.ProductOrder CreateProductOrdersBy(Models.ProductOrder productorder)
-        {
-                context.ProductOrder.Add(productorder);
-                context.SaveChanges();
-                return productorder;
         }
     }
 }

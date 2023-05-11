@@ -75,9 +75,9 @@ VALUES
 ('Novos Titão Capa Dura - Volume 4'	,'DC Graphics Novels 2016',	'HQ',35,53.90,'img49','#HQ'),
 ('Novos Titãs Capa Dura - Volume 5'	,'DC Graphics Novels 2016',	'HQ',35,47.90,'img50','#HQ')
 
-Select*From ProductOrder
+Select*From ProductsOrders
 
-INSERT INTO ProductOrder (idProduct,idOrder,Quantity)
+INSERT INTO ProductsOrders (idProducts,idOrders,Quantity)
 VALUES
 (1,3, 5),
 (1,2, 15),

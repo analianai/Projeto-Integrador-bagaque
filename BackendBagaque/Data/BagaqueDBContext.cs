@@ -8,7 +8,7 @@ namespace BackendBagaque.Data
         public BagaqueDBContext(DbContextOptions<BagaqueDBContext> options) : base(options) { }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Products> Products { get; set; }
-        public DbSet<ProductOrder> ProductOrder { get; set; }
+        public DbSet<ProductsOrders> ProductsOrders { get; set; }
         public DbSet<Users> Users { get; set; }
 
     }

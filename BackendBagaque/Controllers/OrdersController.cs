@@ -1,5 +1,6 @@
 ﻿using BackendBagaque.Models;
 using BackendBagaque.Services.Orders;
+using BackendBagaque.Services.ProducsOrders;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackendBagaque.Controllers
@@ -9,13 +10,14 @@ namespace BackendBagaque.Controllers
     public class OrdersController : Controller
     {
         private readonly OrdersService ordersService;
+        private readonly ProductsOrdersService productsOrdersService;
 
-        public OrdersController(OrdersService ordersService)
+        public OrdersController(OrdersService ordersService, ProductsOrdersService productsOrdersService)
         {
             this.ordersService = ordersService;
+            this.productsOrdersService = productsOrdersService;
         }
 
-        /*                 CONTROLLE ORDERS            */
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -33,7 +35,21 @@ namespace BackendBagaque.Controllers
             return Ok(order);
         }
 
-        [HttpPost("{IdUsers}")]
+        [HttpPost("by/{IdUsers}")]
+        public IActionResult CreateOrdersBy(Orders order, int idUsers)
+        {
+            try
+            {
+                ordersService.CreateOrdersBy(order, idUsers);
+                return Ok(order);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("admincreateorders/{IdUsers}")]
         public IActionResult CreateOrdersByAdmin(Orders order, int idUsers)
         {
             try
@@ -47,13 +63,13 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        [HttpPut("by/{IdOrders}")]
-        public IActionResult UpdateOrdersBy(int IdOrders, Orders order)
+        [HttpPut("{IdOrders}/updateorder/{IdUsers}")]
+        public IActionResult UpdateOrdersBy(int IdOrders, Orders order, int IdUsers)
         {
             try
             {
-                ordersService.UpdateOrdersBy(IdOrders, order);
-                return Ok(order.TypePayment);
+                ordersService.UpdateOrdersBy(IdOrders, order, IdUsers);
+                return Ok(order);
             }
             catch (Exception ex)
             {
@@ -61,7 +77,7 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        [HttpPut("{IdOrders}/admin/{IdUsers}")]
+        [HttpPut("{IdOrders}/updateorderadmin/{IdUsers}")]
         public IActionResult UpdateOrdersByAdmin(int IdOrders, Orders order, int IdUsers)
         {
             try
@@ -75,7 +91,7 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        [HttpDelete("{IdOrders}/admin/{IdUsers}")]
+        [HttpDelete("{IdOrders}/deleteordersadmin/{IdUsers}")]
         public IActionResult DeleteOrderByAdm(int IdOrders, int IdUsers)
         {
             try
@@ -89,32 +105,59 @@ namespace BackendBagaque.Controllers
             }
         }
 
-        /*          CONTROLLER ORDERS/PRODUCTORDER                     */
-
-        [HttpGet("productorder")]
-        public IActionResult GetProductOrderAll()
+        //          CONTROLLER PRODUCTSORDERS
+        //productOrders
+        [HttpGet("productsorders")]
+        public IActionResult GetProductsOrdersAll()
         {
-            return Ok(ordersService.GetProductOrderAll());
+            return Ok(productsOrdersService.GetProductsOrdersAll());
         }
 
-        [HttpGet("productorder/{IdProductOrder}")]
-        public IActionResult GetOneProductOrder(int IdProductOrder)
+        [HttpGet("productsorders/{IdProductsOrders}")]
+        public IActionResult GetOneProductsOrders(int IdProductsOrders)
         {
-            var productorder = ordersService.GetOneProductOrder(IdProductOrder);
-            if (productorder == null)
+            var productsorders = productsOrdersService.GetOneProductsOrders(IdProductsOrders);
+            if (productsorders == null)
             {
                 return NotFound();
             }
-            return Ok(productorder);
+            return Ok(productsorders);
         }
 
-        [HttpPost("createproductorder")]
-        public IActionResult CreateProductOrdersBy(ProductOrder productorder)
+        [HttpPost("createproductsorders")]
+        public IActionResult CreateProductsOrdersBy(ProductsOrders productsorders)
         {
             try
             {
-                ordersService.CreateProductOrdersBy(productorder);
-                return Ok(productorder);
+                return Ok(productsOrdersService.CreateProductsOrdersBy(productsorders));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPut("updateproductsorders/{IdProductsOrders}")]
+        public IActionResult UpdateProductOrdersBy(ProductsOrders productsorders, int IdProductsOrders)
+        {
+            try
+            {
+                productsOrdersService.UpdateProductOrdersBy(productsorders, IdProductsOrders);
+                return Ok(productsorders);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("deleteproductorders/{IdProductsOrders}")]
+        public IActionResult DeleteProductOrderBy(int IdProductsOrders)
+        {
+            try
+            {
+                productsOrdersService.DeleteProductOrderBy(IdProductsOrders);
+                return Ok("Pedido Excluido com Sucesso " + IdProductsOrders);
             }
             catch (Exception ex)
             {

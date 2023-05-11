@@ -13,8 +13,16 @@ namespace BackendBagaque.Services.Users
             this.context = context;
         }
 
-        public List<Models.Users> GetAll()
+        public List<Models.Users> GetAllAdmin(int IdUsers)
         {
+            var owner = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if (owner == null)
+            {
+                throw new Exception($"Não foi encontrado Usuário para esse ID: {IdUsers}");
+            }
+            if (owner.TypeUser != 2) {
+                throw new Exception($"Usuario não autorizado, ID: {IdUsers}");
+            }
             return context.Users.ToList();
         }
 
@@ -22,6 +30,32 @@ namespace BackendBagaque.Services.Users
         {
             var user = context.Users.Find(IdUsers);
             return user;
+        }
+
+        public Models.Users CreateByUserAdmin(Models.Users users, int IdUsers)
+        {
+            var owner = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if (owner == null)
+            {
+                throw new Exception($"Não foi encontrado Usuário para esse ID: {IdUsers}");
+            }
+            if (owner.TypeUser != 2)
+            {
+                throw new Exception($"Usuario não autorizado, ID: {IdUsers}");
+            }
+            var user = context.Users.FirstOrDefault(c => c.CPF == users.CPF);
+            if (user != null)
+            {
+                throw new Exception("Já existe um Email já cadastrado!");
+            }
+            var usercpf = context.Users.FirstOrDefault(c => c.EmailLogin == users.EmailLogin);
+            if (usercpf == null)
+            {
+                throw new Exception("Já existe um CPF já cadastrado!");
+            }
+            context.Users.Add(users);
+            context.SaveChanges();
+            return users;
         }
 
         public Models.Users CreateByUser(Models.Users users)
@@ -47,7 +81,7 @@ namespace BackendBagaque.Services.Users
             }
         }
 
-        public void Update(int IdUser, Models.Users user)
+public void Update(int IdUser, Models.Users user)
         {
             var userToUpdate = context.Users.Find(IdUser);
             if (userToUpdate != null)
@@ -84,4 +118,3 @@ namespace BackendBagaque.Services.Users
         }
     }
 }
-
