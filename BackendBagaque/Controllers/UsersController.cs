@@ -17,10 +17,17 @@ namespace BackendBagaque.Controllers
             this.usersService = usersService;
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpGet("admin/{IdUsers}")]
+        public IActionResult GetAllAdmin(int IdUsers)
         {
-            return Ok(usersService.GetAll());
+            try
+            {
+                return Ok(usersService.GetAllAdmin(IdUsers));
+            } 
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }            
         }
 
         [HttpGet("{IdUsers}")]
@@ -34,14 +41,27 @@ namespace BackendBagaque.Controllers
             return Ok(user);
         }
 
-        [HttpPost]
-        public IActionResult Create(Users user)
+        [HttpPost("admin/{IdUsers}")]
+        public IActionResult CreateByUserAdmin(Users users, int IdUsers)
         {
             try
             {
-                usersService.Create(user);
-                return Ok(user);
+                usersService.CreateByUserAdmin(users, IdUsers);
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
+        [HttpPost]
+        public IActionResult CreateByUser(Users users)
+        {
+            try
+            {
+                usersService.CreateByUser(users);
+                return Ok(users);
             }
             catch (Exception ex)
             {

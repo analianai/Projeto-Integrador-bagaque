@@ -180,3 +180,4 @@ D:\Digital House\projetos\Projeto-Integrador-bagaque\BackendBagaque\obj\Debug\ne
 D:\Digital House\projetos\Projeto-Integrador-bagaque\BackendBagaque\obj\Debug\net7.0\BackendBagaque.pdb
 D:\Digital House\projetos\Projeto-Integrador-bagaque\BackendBagaque\obj\Debug\net7.0\BackendBagaque.genruntimeconfig.cache
 D:\Digital House\projetos\Projeto-Integrador-bagaque\BackendBagaque\obj\Debug\net7.0\ref\BackendBagaque.dll
+D:\Digital House\projetos\Projeto-Integrador-bagaque\BackendBagaque\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

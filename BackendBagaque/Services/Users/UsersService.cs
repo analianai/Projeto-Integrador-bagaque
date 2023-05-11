@@ -1,4 +1,5 @@
 ﻿using BackendBagaque.Data;
+using BackendBagaque.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BackendBagaque.Services.Users
@@ -12,8 +13,16 @@ namespace BackendBagaque.Services.Users
             this.context = context;
         }
 
-        public List<Models.Users> GetAll()
+        public List<Models.Users> GetAllAdmin(int IdUsers)
         {
+            var owner = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if (owner == null)
+            {
+                throw new Exception($"Não foi encontrado Usuário para esse ID: {IdUsers}");
+            }
+            if (owner.TypeUser != 2) {
+                throw new Exception($"Usuario não autorizado, ID: {IdUsers}");
+            }
             return context.Users.ToList();
         }
 
@@ -23,14 +32,56 @@ namespace BackendBagaque.Services.Users
             return user;
         }
 
-        public Models.Users Create(Models.Users user)
+        public Models.Users CreateByUserAdmin(Models.Users users, int IdUsers)
         {
-            context.Users.Add(user);
+            var owner = context.Users.FirstOrDefault(u => u.IdUsers == IdUsers);
+            if (owner == null)
+            {
+                throw new Exception($"Não foi encontrado Usuário para esse ID: {IdUsers}");
+            }
+            if (owner.TypeUser != 2)
+            {
+                throw new Exception($"Usuario não autorizado, ID: {IdUsers}");
+            }
+            var user = context.Users.FirstOrDefault(c => c.CPF == users.CPF);
+            if (user != null)
+            {
+                throw new Exception("Já existe um Email já cadastrado!");
+            }
+            var usercpf = context.Users.FirstOrDefault(c => c.EmailLogin == users.EmailLogin);
+            if (usercpf == null)
+            {
+                throw new Exception("Já existe um CPF já cadastrado!");
+            }
+            context.Users.Add(users);
             context.SaveChanges();
-            return user;
+            return users;
         }
 
-        public void Update(int IdUser, Models.Users user)
+        public Models.Users CreateByUser(Models.Users users)
+        {
+            var user = context.Users.FirstOrDefault(c => c.CPF == users.CPF);
+            if (user == null)
+            {
+                var usercpf = context.Users.FirstOrDefault(c => c.EmailLogin == users.EmailLogin);
+                if (usercpf == null)
+                {
+                    context.Users.Add(users);
+                    context.SaveChanges();
+                    return users;
+                }
+                else
+                {
+                    throw new Exception("Já existe um Email já cadastrado!");
+                }
+            }
+            else
+            {
+                throw new Exception("Já existe um CPF já cadastrado!");
+            }
+        }
+
+public void Update(int IdUser, Models.Users user)
         {
             var userToUpdate = context.Users.Find(IdUser);
             if (userToUpdate != null)
@@ -67,4 +118,3 @@ namespace BackendBagaque.Services.Users
         }
     }
 }
-

@@ -35,13 +35,13 @@ CREATE TABLE Products (
  Tags VARCHAR(100),
 );
 
-CREATE TABLE ProductOrder (
- IdProductOrder int IDENTITY(1,1) PRIMARY KEY,
- IdProduct int not null,
- IdOrder int not null,
+CREATE TABLE ProductsOrders (
+ IdProductsOrders int IDENTITY(1,1) PRIMARY KEY,
+ IdProducts int not null,
+ IdOrders int not null,
  Quantity int not null,
- FOREIGN KEY (IdProduct) REFERENCES Products(IdProducts),
- FOREIGN KEY (IdOrder) REFERENCES Orders(IdOrders)
+ FOREIGN KEY (IdProducts) REFERENCES Products(IdProducts),
+ FOREIGN KEY (IdOrders) REFERENCES Orders(IdOrders)
 );
 
 /*CREATE TABLE Addresses (
